@@ -1,0 +1,28 @@
+{
+  "name": "typescript-coverage",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "gulp lint",
+    "test": "rm -r build && gulp test",
+    "test:watch": "rm -r build && gulp"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jasmine": "^2.5.38",
+    "gulp": "^3.9.1",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-jasmine": "^2.4.2",
+    "gulp-shell": "^0.5.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-tslint": "^7.0.1",
+    "gulp-typescript": "^3.1.3",
+    "istanbul": "^0.4.5",
+    "remap-istanbul": "^0.7.0",
+    "run-sequence": "^1.2.2",
+    "tslint": "^4.0.2",
+    "typescript": "^2.0.10"
+  }
+}
