@@ -25,8 +25,13 @@ gulp.task("watch", ["test"], function() {
   gulp.watch(["src/**/*.ts", "src/*.ts"], ["test"]);
 });
 
+gulp.task("dist", function() {
+  return gulp.src(['build/*.js', 'build/**/*.js', '!build/*.spec.js', '!build/**/*.spec.js'])
+  .pipe(gulp.dest('dest'));
+});
+
 gulp.task("test", function (done) {
-  runSequence("typescript", "test-unit", "cover-unit", "test-e2e", "cover-e2e", "lint", done);
+  runSequence("typescript", "test-unit", "cover-unit", "test-e2e", "cover-e2e", "lint", "dist", done);
 });
 
 gulp.task("typescript", function() {
@@ -61,7 +66,7 @@ gulp.task("cover-unit", shell.task([
   "./node_modules/.bin/remap-istanbul -b src -i ./build/unit-test-coverage/coverage-final.json -o ./build/unit-test-coverage/remapped/coverage.json",
   "./node_modules/.bin/istanbul report --root   ./build/unit-test-coverage/remapped text",
   // "./node_modules/.bin/istanbul report --root   ./build/unit-test-coverage/remapped html",
- {
+], {
   env: { FORCE_COLOR: true }
 }));
 
@@ -86,6 +91,6 @@ gulp.task("cover-e2e", shell.task([
   "./node_modules/.bin/remap-istanbul -b src -i ./build/e2e-test-coverage/coverage-final.json -o ./build/e2e-test-coverage/remapped/coverage.json",
   "./node_modules/.bin/istanbul report --root   ./build/e2e-test-coverage/remapped text",
   // "./node_modules/.bin/istanbul report --root   ./build/e2e-test-coverage/remapped html",
- {
+], {
   env: { FORCE_COLOR: true }
 }));

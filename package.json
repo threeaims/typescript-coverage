@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "gulp lint",
-    "test": "rm -r build && gulp test",
-    "test:watch": "rm -r build && gulp"
+    "test": "rm -rf build dist && gulp test",
+    "test:watch": "rm -rf build dist && gulp"
   },
   "author": "",
   "license": "MIT",
