@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "gulp lint",
     "test": "rm -rf build dist && gulp test",
-    "test:watch": "rm -rf build dist && gulp"
+    "test:watch": "rm -rf build dist && gulp watch"
   },
   "author": "",
   "license": "MIT",
